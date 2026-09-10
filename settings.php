@@ -41,5 +41,14 @@ if ($hassiteconfig) {
         '1'
     ));
 
+    // LTI types that can be identified as summative.
+    $settings->add(new admin_setting_configmultiselect(
+        'local_assess_type/ltitypes',
+        get_string('config:ltitypes', 'local_assess_type'),
+        get_string('config:ltitypes:desc', 'local_assess_type'),
+        [],
+        \local_assess_type\config::get_all_lti_types()
+    ));
+
     $ADMIN->add('localplugins', $settings);
 }

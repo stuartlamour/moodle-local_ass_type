@@ -25,6 +25,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$string['config:ltitypes'] = 'LTI Types';
+$string['config:ltitypes:desc'] = 'Select the LTI types that can be identified as summative';
 $string['defaultoption'] = 'Select an option';
 $string['dummy'] = 'Dummy activity';
 $string['dummyoption'] = 'Dummy activity - neither formative or summative';

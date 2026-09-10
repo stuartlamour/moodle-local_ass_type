@@ -51,6 +51,24 @@ final class assess_type_test extends \advanced_testcase {
     }
 
     /**
+     * Test the configured LTI types that may be summative.
+     *
+     * @covers \local_assess_type\assess_type::canbesummative
+     */
+    public function test_canbesummative_lti_types(): void {
+        $this->resetAfterTest(true);
+
+        set_config('enabled', 1, 'local_assess_type');
+        set_config('ltitypes', '42,99', 'local_assess_type');
+        config::instance(true);
+
+        $this->assertTrue(assess_type::canbesummative('lti', 42));
+        $this->assertTrue(assess_type::canbesummative('lti', 99));
+        $this->assertFalse(assess_type::canbesummative('lti', 7));
+        $this->assertFalse(assess_type::canbesummative('lti'));
+    }
+
+    /**
      * Data provider.
      */
     public static function assess_type_strings(): array {

@@ -41,9 +41,10 @@ function local_assess_type_coursemodule_standard_elements($formwrapper, $mform) 
     }
 
     $cm = $formwrapper->get_current();
+    $ltitypeid = ($cm->modulename === 'lti') ? $mform->getElementValue('typeid') : 0;
 
     // Check list of mods where this is enabled.
-    if (!assess_type::canbesummative($cm->modulename)) {
+    if (!assess_type::canbesummative($cm->modulename, $ltitypeid)) {
         return; // Exit if not enabled.
     }
 
