@@ -24,8 +24,7 @@ namespace local_assess_type;
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @author      Amanda Doughty <m.doughty@ucl.ac.uk>
  */
-class config
-{
+class config {
     /** @var \stdClass config */
     protected \stdClass $config;
 
@@ -64,7 +63,7 @@ class config
      * @return int[]
      */
     public function get_lti_types(): array {
-        return array_filter(array_map('intval', explode(',', $this->config->ltitypes)));
+        return array_filter(array_map('intval', explode(',', ($this->config->ltitypes ?? ''))));
     }
 
     /**
